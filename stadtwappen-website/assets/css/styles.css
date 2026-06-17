@@ -362,6 +362,35 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
 }
 
+.biergarten-section {
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%);
+}
+.biergarten-grid {
+  display: grid;
+  grid-template-columns: .86fr 1.14fr .72fr;
+  gap: 24px;
+  align-items: center;
+}
+.biergarten-photo {
+  display: block;
+  overflow: hidden;
+  border: 8px solid var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  background: var(--paper-deep);
+  cursor: zoom-in;
+}
+.biergarten-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.biergarten-photo.is-wide img { aspect-ratio: 4/3; }
+.biergarten-photo:hover img { transform: scale(1.035); }
+
 .event-section {
   background: radial-gradient(circle at 90% 10%, rgba(214,167,72,.17), transparent 26rem), var(--green-900);
   color: var(--cream-100);
@@ -369,7 +398,7 @@ a { color: inherit; text-decoration: none; }
 }
 .event-grid {
   display: grid;
-  grid-template-columns: .85fr 1fr 1fr;
+  grid-template-columns: .95fr repeat(3, minmax(0, 1fr));
   gap: 26px;
   align-items: center;
 }
@@ -534,12 +563,12 @@ address { font-style: normal; }
 .page-hero {
   background:
     linear-gradient(90deg, rgba(6,31,24,.88), rgba(6,31,24,.5)),
-    url("../images/aussenansicht.jpg") center/cover;
+    url("../images/gaststaette-zum-stadtwappen-aussenansicht-fuerth.jpg") center/cover;
   background:
     linear-gradient(90deg, rgba(6,31,24,.88), rgba(6,31,24,.5)),
     image-set(
-      url("../images/aussenansicht.webp") type("image/webp"),
-      url("../images/aussenansicht.jpg") type("image/jpeg")
+      url("../images/gaststaette-zum-stadtwappen-aussenansicht-fuerth.webp") type("image/webp"),
+      url("../images/gaststaette-zum-stadtwappen-aussenansicht-fuerth.jpg") type("image/jpeg")
     ) center/cover;
   color: var(--cream-50);
   padding: 86px 0;
@@ -696,7 +725,7 @@ address { font-style: normal; }
 }
 
 @media (max-width: 1000px) {
-  .intro-grid, .event-grid, .info-grid { grid-template-columns: 1fr; }
+  .intro-grid, .event-grid, .info-grid, .biergarten-grid { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .drink-gallery { grid-template-columns: repeat(auto-fit, minmax(165px, 210px)); }
   .info-card, .info-card:first-child { border-left: 0; border-top: 1px solid rgba(107,68,40,.18); }
@@ -730,6 +759,7 @@ address { font-style: normal; }
   .main-nav a { display: block; padding: 12px 0; }
   .hero { min-height: 560px; background-position: 58% center; }
   .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.2); }
+  .biergarten-photo img { min-height: 280px; aspect-ratio: 16/10; }
   .menu-list, .gallery-grid { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
 }
