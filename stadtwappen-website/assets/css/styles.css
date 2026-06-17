@@ -594,6 +594,12 @@ address { font-style: normal; }
   text-transform: uppercase;
   color: var(--brown-800);
 }
+.menu-note {
+  margin: -6px 0 16px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
 .legal-copy {
   max-width: 920px;
 }
